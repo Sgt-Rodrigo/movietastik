@@ -1,0 +1,118 @@
+.oswald-thick {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+}
+
+.montserrat-small {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+}
+
+body {
+  background-color: #303030;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  width: 80%;
+  max-width: 1100;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.col {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+header {
+  padding-top: 1.5rem;
+  min-height: 100svh;
+  min-height: 100vh;
+}
+
+.logo {
+  width: 100px;
+}
+.logo img {
+  border-radius: 100%;
+}
+
+nav {
+  justify-content: space-between;
+}
+
+.nav__list {
+  gap: 2rem;
+}
+.nav__list__primary {
+  justify-content: flex-end;
+}
+.nav__list__secondary {
+  justify-content: flex-end;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+  opacity: 0.8;
+}
+.nav__link:hover {
+  opacity: 1;
+}
+
+.section-one h3 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.section-one p {
+  font-size: 1.5rem;
+  text-align: justify;
+  margin-bottom: 5rem;
+}
+
+.section-one__buttons > a {
+  display: block;
+  text-decoration: none;
+  font-size: 2rem;
+  padding: 0.7rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  border-radius: 100px;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.section-one__buttons > a:hover {
+  box-shadow: 0px 0px 20px #fff;
+  background-color: purple;
+}
+
+.section-two {
+  background-color: tomato;
+  min-height: 100svh;
+  min-height: 100vh;
+}
+
+.card__image {
+  width: 250px;
+  height: 250px;
+  background-color: purple;
+}
+
+label {
+  display: block;
+}
+
+/*# sourceMappingURL=style.css.map */
