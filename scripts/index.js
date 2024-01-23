@@ -117,10 +117,37 @@ function renderCards (){
     updateCards();
 }
 
-//* handler button
+//* handler button > this is my original working button + eventListener
+//* but it seems that declaring dom references outside a function prevents Jasmin test to run.
+//     const addButton = document.querySelector('.add-btn');
 
-const addButton = document.querySelector('.add-btn');
 
-addButton.addEventListener('click', (e)=>{
-    renderCards();
-})
+// addButton.addEventListener('click', (e)=>{
+//     renderCards();
+// })
+
+
+//* this was done with chatGPT in order to pass the Jasmin tests.
+
+// Attach event listener in a separate function to avoid global scope pollution
+function attachEventListeners() {
+    const addButton = document.querySelector('.add-btn');
+    addButton.addEventListener('click', (e) => {
+        renderCards();
+    });
+}
+
+// Export functions and classes if using Node.js/CommonJS
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        Activity,
+        Repository,
+        createCard,
+        updateCards,
+        renderCards,
+        attachEventListeners,
+    };
+} else {
+    // If in a browser environment, attach event listeners directly
+    attachEventListeners();
+}
