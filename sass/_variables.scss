@@ -1,27 +1,27 @@
 //*fonts
-$oswarld: "Oswald", sans-serif;
+$oswald: "Oswald", sans-serif;
 $montserrat: "Montserrat", sans-serif;
 
 //*color pallete (dark-theme)
 $text: #eaf0f8;
 $background: #0a111c;
 $primary: #93afd9;
-$secondary: #5e2b79;
+$secondary: #2c133a;
 $accent: #c568ca;
 
 
 
 //*font utility classes
 
-.oswald-thick {
-    font-family: "Oswald", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-  }
+// .oswald-thick {
+//     font-family: "Oswald", sans-serif;
+//     font-optical-sizing: auto;
+//     font-weight: 700;
+//   }
 
-  .montserrat-small {
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-  }
+//   .montserrat-small {
+//     font-family: "Montserrat", sans-serif;
+//     font-optical-sizing: auto;
+//     font-weight: 300;
+//   }
 

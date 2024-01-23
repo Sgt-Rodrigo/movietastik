@@ -12,9 +12,7 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <header>NAVBAR(top news and reviews - Collection+LOGO+TITULO+STICKY+BURGUER</header> -->
-
-    <header>
+<header>
         <!-- <div class="nav-container container row">
             <div class="logo">
                 <img src="./assets/logo/Logo1.png" alt="logo">
@@ -41,42 +39,46 @@
 
         
             <div class="section-one container">
-                <h3 class="section-one__title">
+                <h3 class="section-title section-one__title">
                     Hi there, folks!
                 </h3>
                 <div class="section-one__text">
                     <p class="section-one__para">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde doloribus id dolore, accusantium similique natus illo et optio rerum adipisci labore tempora, tenetur sapiente, ea aliquid   saepe.
+                        My name is <span>Rodrigo Fernandez</span>  cohorte Pt19a  adipisicing elit. Unde doloribus id dolore, accusantium similique natus illo et optio rerum adipisci labore tempora, tenetur sapiente, ea aliquid   saepe.
                     </p>
                     <div class="section-one__buttons">
-                        <a class="btn-one" href="#">Top News</a>
-                        <a class="btn-two" href="#">Browse Revies</a>
+                        <a class="btn-one" href="#news&reviews">Top News</a>
+                        <a class="btn-two" href="#section-three">Add Your Movies</a>
                     </div>
                 </div>
             </div>            
     </header>
     
-
     <main>
-        
-
-
-
         <section class="section section-two">
+            <h3 class="section-title section-two__title" id="news&reviews">News & Reviews</h3>
             <div class="container">
-                <h3 class="section-two__title">News & Reviews</h3>
                 <div class="section-two__cards-container">
-                    <div class="section-two__card">
-                        <h4 class="card__title">Title</h4>
-                        <div class="card__image"></div>
+                    <div class="section-two__card">                        
+                        <div class="section-two__card__image">
+                            <a href="https://www.youtube.com/watch?v=PpAhjOvQVj0" target="_blank">
+                                <img src="./assets/images/HeatPoster.jpg" alt="top movie 1">
+                            </a>
+                        </div>
                     </div>
-                    <div class="section-two__card">
-                        <h4 class="card__title">Title</h4>
-                        <div class="card__image"></div>
+                    <div class="section-two__card">                        
+                        <div class="section-two__card__image">
+                            <a href="https://www.youtube.com/watch?v=nOZwnivtLbc" target="_blank">
+                                <img src="./assets/images/TheFogPoster.jpg" alt="top movie 2">
+                            </a>
+                        </div>
                     </div>
-                    <div class="section-two__card">
-                        <h4 class="card__title">Title</h4>
-                        <div class="card__image"></div>
+                    <div class="section-two__card">                        
+                        <div class="section-two__card__image">
+                            <a href="https://www.youtube.com/watch?v=eIGGKSHMQOM" target="_blank">
+                                <img src="./assets/images/AfterLifePoster.webp" alt="top movie 3">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,11 +86,12 @@
 
 
 
-        <!-- <section class="section section-three">
+        <section class="section section-three" id="section-three">
+            <h3 class=" section-title section-three__title">Add your movies</h3>
             <form class="section-three__form" action="#">
                 <div class="container">
                     <label class="section-three__form__label" for="movie-title">
-                        MOVIE TITLE: 
+                        MOVIE TITLE:                        
                         <input type="text" 
                         name="movie-title" 
                         id="movie-title" 
@@ -96,7 +99,8 @@
                     </label>
                     <label class="section-three__form__label" for="movie-description">
                         Description: 
-                        <textarea name="movie-description" 
+                        <textarea 
+                        name="movie-description" 
                         id="movie-description" placeholder="what's the movie about?"
                         required></textarea>
                     </label>
@@ -107,19 +111,21 @@
                         id="poster" 
                         placeholder="https://mymovieposter.com" required>
                     </label>
-                </div>
+                </div>                
             </form>
             <div class="section-three__form__buttom container">
-                <button type="buttom">Add to collection</button>
-                <button type="buttom">Manage collection</button>
+                <button class="add-btn" type="button">Add to collection</button>
+                <button type="button">Manage collection</button>
             </div>
-        </section> -->
-
-        <section class="section-grid">
-
-        </section>
+            <hr>
+            <div class="cards container">
+                <h3 class="empty-grid-message">no movies added</h3>
+            </div>
+        </section>       
     </main>
 
-    <!-- <footer>&copy 2024 by Rodrigo Fernandez</footer> -->
+    <footer>
+        <p class="copyright">&copy 2024 by Rodrigo Fernandez - Pt19a</p>
+    </footer>
 </body>
 </html>

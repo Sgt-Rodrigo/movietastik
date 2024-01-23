@@ -3,31 +3,20 @@
 body {
     background-color: #303030;
     color: #fff;
-    font-family: $montserrat
+    font-family: $montserrat;
 }
 
 .container {
     width: 80%;
     max-width: 1100;
-    margin: 0 auto
+    margin: 0 auto;
 }
 
 .row {
     display: flex;
     align-items: center;
-    flex: 1
+    flex: 1;
 }
-
-.col {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: flex-end;
-}
-
-
-
-
 
 
 header {
@@ -38,7 +27,7 @@ header {
     // inset:0;
 }
 
-//*navbar
+//******************navbar****************
 .logo{
     width: 100px;
     
@@ -75,19 +64,39 @@ nav {
     }
 }
 
+//**********all sections*************
+.section{
+    padding-top:2rem;
+}
 
+.section-title {
+    font-family: $oswald;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+//***************section-one ('sobre mi')*****************
 
 .section-one {
-    h3 {
-        font-size: 3rem;
-        text-align: center;
-        margin-bottom: 2rem;
-    }
+    // h3 {
+    //     font-family: $oswald;
+    //     font-size: 3rem;
+    //     text-align: center;
+    //     margin-bottom: 2rem;
+    // }
 
     p {
         font-size: 1.5rem;
-        text-align: justify;
+        text-align: center;
         margin-bottom: 5rem;
+
+        span {
+            display: inline-block;
+            font-weight: bold;
+            font-style: italic;
+            box-shadow: 0 0 5px purple;
+        }
     }
 }
   
@@ -111,28 +120,127 @@ nav {
 
      
 
-
+//*****************section-two ('actividades/pelis favoritas)'*****************
 
 
 
 .section-two {
-    background-color: tomato;
+    background-color: $secondary;
     min-height: 100svh;
     min-height: 100vh; 
 }
 
 
+.section-two__cards-container {
+    padding: 1rem;
+}
+
+.section-two__card {
+    border: 2px solid purple;
+    box-shadow: 0 0 10px rgb(231, 3, 170);
+    margin-bottom: 1rem;
+    transform: scale(1);
+    transition: transform ease-in-out 0.15s;
+
+    &:hover {
+        transform: scale(1.05)
+    }   
+}
+
+.section-two__card__image{
+    img {
+        width: 100%;
+    }
+}
+
+
+//***************section-three (FORM)****************
+
+
+//*section 3 - Form
+
+.section-three {
+    hr {
+        width: 80%;
+    }
+}
+
+.section-three__form {
+    margin-bottom: 3rem;
+    label, input, textarea {
+        display: block;
+        margin: 0 auto;
+    }
+
+    label {
+        text-align: center;
+    }
+}
+
+.section-three__form__buttom {
+    // border: 1px solid red;
+
+    button {
+        display: block;
+        margin: 1rem auto;
+        
+        
+        &:hover {
+            background-color: #303030;
+            border: 2px solid #fff;
+            color: #fff;
+            box-shadow:0 0 10px #fff;
+
+        }
+
+    }
+}
+
+
+//****************card-grid****************
+
+
+//*cards grid
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    .empty-grid-message{
+        text-align: center;
+        flex:1;
+    }
+}
+
+.card {
+    border: 2px solid #fff;
+    box-shadow: 0 0 10px #fff;
+    margin-top: 2rem
+}
+
+
+.card__title {
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
 .card__image {
-    width: 250px;
-    height: 250px;
-    background-color: purple;
+    width: 100%;
+}
+
+.card__description {
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
 }
 
 
 
-
-label {
-    display: block;
+footer {
+    text-align: center;
+    p {
+        margin-top: 100%;
+    }
 }
-
 
