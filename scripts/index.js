@@ -109,12 +109,16 @@ function renderCards (){
     //*verify non-empty string
     if(!usrTitle | !usrDescription | ! usrImage) {
         alert('Complete all three fields mate');
-        resetInputs();
         return
     }
 
     newRepo.createActivity(usrTitle, usrDescription, usrImage);
     updateCards();
+     //* Clear input values
+      inputTitle.value = '';
+      inputDescription.value = '';
+      inputImage.value = '';
+  
 }
 
 //* handler button > this is my original working button + eventListener
