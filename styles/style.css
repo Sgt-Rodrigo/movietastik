@@ -6,7 +6,7 @@ body {
 
 .container {
   width: 80%;
-  max-width: 1100;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -63,6 +63,11 @@ nav {
   text-align: center;
   margin-bottom: 2rem;
 }
+@media (min-width: 700px) {
+  .section-title {
+    font-size: 4rem;
+  }
+}
 
 .section-one p {
   font-size: 1.5rem;
@@ -74,6 +79,13 @@ nav {
   font-weight: bold;
   font-style: italic;
   box-shadow: 0 0 5px purple;
+}
+
+@media (min-width: 700px) {
+  .section-one__buttons {
+    width: 60%;
+    margin: 0 auto;
+  }
 }
 
 .section-one__buttons > a {
@@ -100,6 +112,11 @@ nav {
 
 .section-two__cards-container {
   padding: 1rem;
+}
+@media (min-width: 700px) {
+  .section-two__cards-container {
+    display: flex;
+  }
 }
 
 .section-two__card {
@@ -128,8 +145,14 @@ nav {
   display: block;
   margin: 0 auto;
 }
+@media (min-width: 700px) {
+  .section-three__form label, .section-three__form input, .section-three__form textarea {
+    font-size: 2rem;
+  }
+}
 .section-three__form label {
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .section-three__form__buttom button {
@@ -142,15 +165,30 @@ nav {
   color: #fff;
   box-shadow: 0 0 10px #fff;
 }
+@media (min-width: 700px) {
+  .section-three__form__buttom button {
+    font-size: 1.5rem;
+  }
+}
 
 .cards {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
 .cards .empty-grid-message {
   text-align: center;
-  flex: 1;
+  grid-column: span 2;
+}
+@media (min-width: 700px) {
+  .cards .empty-grid-message {
+    grid-column: span 3;
+  }
+}
+@media (min-width: 700px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .card {

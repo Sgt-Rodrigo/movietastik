@@ -29,17 +29,14 @@ class Repository {
     deleteActivity (id) {
         this.activities = this.activities.filter(activity => activity.id !== id);
         
-    }
-
-    
+    }    
 }
 
 const newRepo = new Repository();
 
 
 function createCard({id, title, description, imgUrl}) {
-    const cardContainer = document.createElement('div');
-    
+    const cardContainer = document.createElement('div');    
     const cardTitle = document.createElement('h3');    
     const cardDescription = document.createElement('p');    
     const imageContainer = document.createElement('div');
@@ -71,9 +68,6 @@ function createCard({id, title, description, imgUrl}) {
 
     //*appending all in the cardContainer
     cardContainer.append(cardTitle, imageContainer, cardDescription);
-
-    //*appending all into the cards container
-    // cards.append(cardTitle, cardImage, cardDescription, idHidden);
 
     return cardContainer
 
