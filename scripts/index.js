@@ -12,7 +12,7 @@ class Activity {
 class Repository {
     constructor(){
      this.activities = [];   
-     this.contador =1;
+     this.contador = 1;
     }
 
     getAllActivities(){
@@ -27,25 +27,29 @@ class Repository {
     }
 
     deleteActivity (id) {
-        this.activities = this.activities.filter(activity => activity.id !== id);
+        this.activities = this.activities.filter(activity => activity.id !== parseInt(id));
         
     }    
 }
-
+//*********** Main Repository instance ***************
 const newRepo = new Repository();
 
 
+//********** Create a card ************ */
+
 function createCard({id, title, description, imgUrl}) {
+    //?/ node references
     const cardContainer = document.createElement('div');    
     const cardTitle = document.createElement('h3');    
     const cardDescription = document.createElement('p');    
     const imageContainer = document.createElement('div');
     const cardImage = document.createElement('img');
     const idHidden = document.createElement('input');
+    const checkbox = document.createElement('input');
     idHidden.type = 'hidden';
     idHidden.value = '';
     
-    //?? class asignment
+    //?/ class/style/value asignment
     //*cardContainer
     cardContainer.classList.toggle('card');
     //*cardTitle
@@ -54,6 +58,11 @@ function createCard({id, title, description, imgUrl}) {
     //*cardDescription
     cardDescription.textContent = description;
     cardDescription.classList.toggle('card__description');
+    //*checkbox
+    checkbox.type = 'checkbox';
+    checkbox.id = id;
+    checkbox.style.visibility = 'hidden';
+    checkbox.classList.toggle('card-checkbox');
     //*imageContainer
     imageContainer.classList.toggle('image__container');
     //*cardImage
@@ -67,26 +76,25 @@ function createCard({id, title, description, imgUrl}) {
     imageContainer.append(cardImage);
 
     //*appending all in the cardContainer
-    cardContainer.append(cardTitle, imageContainer, cardDescription);
+    cardContainer.append(cardTitle, imageContainer, cardDescription, checkbox);
 
     return cardContainer
 
 }
 
 
-
+//******** Update card Grid > using createCard() *******/
 function updateCards() {
     const cards = document.querySelector('.cards');
-
+    //?/ deletes grid content
     cards.innerHTML = '';
-    //*returns a new array with card objects
+    //?/ returns a new array with card objects
     const allCards = newRepo.getAllActivities().map(activity => createCard({id:activity.id, title:activity.title, description:activity.description, imgUrl:activity.imgUrl}));
 
-    //*appends all card nodes in the card container
+    //?/ appends all card nodes in the card container
     allCards.forEach(card => {
         cards.append(card)
     })
-
 }
 
 
@@ -95,45 +103,89 @@ function renderCards (){
     const inputDescription = document.querySelector('#movie-description');
     const inputImage = document.querySelector('#poster')
 
-    //*usr Input
+    //?/ usr Input
     const usrTitle = inputTitle.value;
     const usrDescription = inputDescription.value;
     const usrImage = inputImage.value;
 
-    //*verify non-empty string
+    //?/ verify non-empty string values
     if(!usrTitle | !usrDescription | ! usrImage) {
         alert('Complete all three fields mate');
         return
     }
-
+    
+    //?/ updates 'database' and renders grid
     newRepo.createActivity(usrTitle, usrDescription, usrImage);
     updateCards();
-     //* Clear input values
+
+     //?/ Clears input values
       inputTitle.value = '';
       inputDescription.value = '';
       inputImage.value = '';
   
 }
 
-//* handler button > this is my original working button + eventListener
-//* but it seems that declaring dom references outside a function prevents Jasmin test to run.
-//     const addButton = document.querySelector('.add-btn');
 
 
-// addButton.addEventListener('click', (e)=>{
-//     renderCards();
-// })
+//************** Delete cards *********/
+
+//*? toggle button and display checkboxes
+let isManageMode = true;
+
+function toggleManageMode() {
+    //?/ toggle buttons
+    isManageMode = !isManageMode;
+    
+    const manageButton = document.querySelector('.manage-btn');
+    manageButton.textContent = isManageMode ? 'Manage Collection' : 'Delete Selected';
 
 
-//* this was done with chatGPT in order to pass the Jasmin tests.
+    if(!isManageMode) {
+        //?/ display checkboxes
+        const checkboxes = document.querySelectorAll('.card-checkbox');
+    
+        checkboxes.forEach((checkbox)=>{
+            checkbox.style.visibility = 'visible';            
+        })
 
-// Attach event listener in a separate function to avoid global scope pollution
-function attachEventListeners() {
-    const addButton = document.querySelector('.add-btn');
-    addButton.addEventListener('click', (e) => {
-        renderCards();
-    });
+    } else {
+        //?/ deletes selected cards
+        const checked = document.querySelectorAll('.card-checkbox:checked');
+        checked.forEach(checkbox => {
+            deleteSelectedCards(checkbox.id);
+        })
+    } 
 }
+
+//?/ identify and delete checked cards + update grid
+function deleteSelectedCards() {
+    //*reference all checked checkboxes
+        const checkedCheckboxes = document.querySelectorAll('.card-checkbox:checked');
+        checkedCheckboxes.forEach(checkbox => {
+            newRepo.deleteActivity(checkbox.id)
+        })
+    
+        updateCards();
+}
+
+
+
+//* this function was done with chatGPT in order to pass the Jasmin tests.
+function attachEventListeners() {
+        const addButton = document.querySelector('.add-btn');
+        const manageButton = document.querySelector('.manage-btn');    
+        //*add card
+        addButton.addEventListener('click', (e) => {
+            renderCards();
+        });
+        //*Manage Collection
+          manageButton.addEventListener('click',() => {
+            toggleManageMode();    
+        })
+    
+
+}
+
 
 // Export functions and classes if using Node.js/CommonJS
 if (typeof module !== 'undefined' && module.exports) {
